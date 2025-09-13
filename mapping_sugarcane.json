@@ -1,0 +1,1231 @@
+{
+  "0": {
+    "districts": [
+      "Belgaum",
+      "Dharwad"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "1": {
+    "districts": [
+      "Belgaum",
+      "Dharwad"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "2": {
+    "districts": [
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "3": {
+    "districts": [
+      "Bagalkot",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "4": {
+    "districts": [
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "5": {
+    "districts": [
+      "Bagalkot"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "6": {
+    "districts": [
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "7": {
+    "districts": [
+      "Kolhapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "8": {
+    "districts": [
+      "Bagalkot"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "9": {
+    "districts": [
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "10": {
+    "districts": [
+      "Bagalkot",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "11": {
+    "districts": [
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "12": {
+    "districts": [
+      "Sangli"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "13": {
+    "districts": [
+      "Kolhapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "14": {
+    "districts": [
+      "Sangli"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "15": {
+    "districts": [
+      "Bijapur",
+      "Gulbarga"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "16": {
+    "districts": [
+      "Satara"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "17": {
+    "districts": [
+      "Sangli"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "18": {
+    "districts": [
+      "Kolhapur",
+      "Sangli",
+      "Satara"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "19": {
+    "districts": [
+      "Sangli"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "20": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "21": {
+    "districts": [
+      "Satara"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "22": {
+    "districts": [
+      "Bidar"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "23": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "24": {
+    "districts": [
+      "Satara"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "25": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "26": {
+    "districts": [
+      "Pune",
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "27": {
+    "districts": [
+      "Mahbubnagar",
+      "Rangareddi",
+      "Bagalkot",
+      "Belgaum",
+      "Bidar",
+      "Bijapur",
+      "Gulbarga",
+      "Raichur",
+      "Latur",
+      "Osmanabad",
+      "Sangli",
+      "Solapur"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Karnataka",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "28": {
+    "districts": [
+      "Bidar"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "29": {
+    "districts": [
+      "Osmanabad",
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "30": {
+    "districts": [
+      "Osmanabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "31": {
+    "districts": [
+      "Pune",
+      "Satara"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "32": {
+    "districts": [
+      "Bidar"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "33": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "34": {
+    "districts": [
+      "Latur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "35": {
+    "districts": [
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "36": {
+    "districts": [
+      "Osmanabad",
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "37": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "38": {
+    "districts": [
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "39": {
+    "districts": [
+      "Latur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "40": {
+    "districts": [
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "41": {
+    "districts": [
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "42": {
+    "districts": [
+      "Osmanabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "43": {
+    "districts": [
+      "Osmanabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "44": {
+    "districts": [
+      "Ahmednagar",
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "45": {
+    "districts": [
+      "Osmanabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "46": {
+    "districts": [
+      "Latur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "47": {
+    "districts": [
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "48": {
+    "districts": [
+      "Ahmednagar"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "49": {
+    "districts": [
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "50": {
+    "districts": [
+      "Bid",
+      "Latur",
+      "Osmanabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "51": {
+    "districts": [
+      "Ahmednagar",
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "52": {
+    "districts": [
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "53": {
+    "districts": [
+      "Ahmednagar",
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "54": {
+    "districts": [
+      "Bid",
+      "Parbhani"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "55": {
+    "districts": [
+      "Ahmednagar"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "56": {
+    "districts": [
+      "Bid",
+      "Parbhani"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "57": {
+    "districts": [
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "58": {
+    "districts": [
+      "Ahmednagar",
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "59": {
+    "districts": [
+      "Parbhani"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "60": {
+    "districts": [
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "61": {
+    "districts": [
+      "Ahmednagar",
+      "Bid"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "62": {
+    "districts": [
+      "Ahmednagar",
+      "Pune"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "63": {
+    "districts": [
+      "Ahmednagar"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "64": {
+    "districts": [
+      "Adilabad",
+      "Nizamabad",
+      "Bidar",
+      "Hingoli",
+      "Latur",
+      "Nanded",
+      "Parbhani",
+      "Yavatmal"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Karnataka",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "65": {
+    "districts": [
+      "Nanded",
+      "Yavatmal"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "66": {
+    "districts": [
+      "Nanded",
+      "Yavatmal"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "67": {
+    "districts": [
+      "Aurangabad"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "68": {
+    "districts": [
+      "Nanded"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "69": {
+    "districts": [
+      "Buldana",
+      "Hingoli",
+      "Parbhani"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "70": {
+    "districts": [
+      "Buldana"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "71": {
+    "districts": [
+      "Navsari",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "72": {
+    "districts": [
+      "Jalgaon"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "73": {
+    "districts": [
+      "Jalgaon"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "74": {
+    "districts": [
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "75": {
+    "districts": [
+      "The Dangs",
+      "Ahmednagar",
+      "Aurangabad",
+      "Bid",
+      "Buldana",
+      "Dhule",
+      "Jalgaon",
+      "Jalna",
+      "Nashik"
+    ],
+    "states": [
+      "Gujarat",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "76": {
+    "districts": [
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "77": {
+    "districts": [
+      "Bharuch",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "78": {
+    "districts": [
+      "Bharuch"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "79": {
+    "districts": [
+      "Bharuch"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "80": {
+    "districts": [
+      "Bharuch"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "81": {
+    "districts": [
+      "Bharuch",
+      "Vadodara"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "82": {
+    "districts": [
+      "Basti"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "83": {
+    "districts": [
+      "Basti"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "84": {
+    "districts": [
+      "Basti"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "85": {
+    "districts": [
+      "Kushinagar",
+      "Maharajganj"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "86": {
+    "districts": [
+      "Gonda"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "87": {
+    "districts": [
+      "Hardoi",
+      "Unnao"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "88": {
+    "districts": [
+      "Hardoi"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "89": {
+    "districts": [
+      "Balrampur",
+      "Gonda"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "90": {
+    "districts": [
+      "Bahraich",
+      "Gonda"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "91": {
+    "districts": [
+      "Hardoi"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "92": {
+    "districts": [
+      "Sitapur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "93": {
+    "districts": [
+      "Bahraich"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "94": {
+    "districts": [
+      "Balrampur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "95": {
+    "districts": [
+      "Sitapur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "96": {
+    "districts": [
+      "Balrampur",
+      "Shravasti"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "97": {
+    "districts": [
+      "Hardoi",
+      "Shahjahanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "98": {
+    "districts": [
+      "Hardoi",
+      "Lakhimpur Kheri",
+      "Sitapur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "99": {
+    "districts": [
+      "Bahraich"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "100": {
+    "districts": [
+      "Aligarh",
+      "Bulandshahr"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "101": {
+    "districts": [
+      "Bulandshahr"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "102": {
+    "districts": [
+      "Lakhimpur Kheri"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "103": {
+    "districts": [
+      "Lakhimpur Kheri"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "104": {
+    "districts": [
+      "Pilibhit",
+      "Shahjahanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "105": {
+    "districts": [
+      "Bulandshahr"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "106": {
+    "districts": [
+      "Lakhimpur Kheri",
+      "Pilibhit"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "107": {
+    "districts": [
+      "Bareilly",
+      "Hardoi",
+      "Lakhimpur Kheri",
+      "Pilibhit",
+      "Shahjahanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "108": {
+    "districts": [
+      "Bareilly",
+      "Rampur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "109": {
+    "districts": [
+      "Aligarh",
+      "Badaun",
+      "Bareilly",
+      "Bulandshahr",
+      "Etah",
+      "Farrukhabad",
+      "Hardoi",
+      "Kannauj",
+      "Moradabad",
+      "Shahjahanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "110": {
+    "districts": [
+      "Bareilly",
+      "Rampur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "111": {
+    "districts": [
+      "Ghaziabad"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "112": {
+    "districts": [
+      "Ghaziabad"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "113": {
+    "districts": [
+      "Pilibhit",
+      "Udham Singh Nagar"
+    ],
+    "states": [
+      "Uttar Pradesh",
+      "Uttaranchal"
+    ],
+    "method": "spatial_intersection"
+  },
+  "114": {
+    "districts": [
+      "Bareilly",
+      "Pilibhit",
+      "Udham Singh Nagar"
+    ],
+    "states": [
+      "Uttar Pradesh",
+      "Uttaranchal"
+    ],
+    "method": "spatial_intersection"
+  },
+  "115": {
+    "districts": [
+      "Rampur",
+      "Udham Singh Nagar"
+    ],
+    "states": [
+      "Uttar Pradesh",
+      "Uttaranchal"
+    ],
+    "method": "spatial_intersection"
+  },
+  "116": {
+    "districts": [
+      "Bijnor",
+      "Jyotiba Phule Nagar",
+      "Meerut",
+      "Moradabad",
+      "Muzaffarnagar"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "117": {
+    "districts": [
+      "Muzaffarnagar",
+      "Saharanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "118": {
+    "districts": [
+      "Sonepat",
+      "Baghpat",
+      "Bulandshahr",
+      "Ghaziabad",
+      "Jyotiba Phule Nagar",
+      "Meerut",
+      "Muzaffarnagar",
+      "Saharanpur"
+    ],
+    "states": [
+      "Haryana",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "119": {
+    "districts": [
+      "Haridwar"
+    ],
+    "states": [
+      "Uttaranchal"
+    ],
+    "method": "spatial_intersection"
+  },
+  "120": {
+    "districts": [
+      "Saharanpur"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "121": {
+    "districts": [
+      "Yamuna Nagar",
+      "Saharanpur"
+    ],
+    "states": [
+      "Haryana",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "122": {
+    "districts": [
+      "Ambala",
+      "Jind",
+      "Kaithal",
+      "Karnal",
+      "Kurukshetra",
+      "Panipat"
+    ],
+    "states": [
+      "Haryana"
+    ],
+    "method": "spatial_intersection"
+  },
+  "123": {
+    "districts": [
+      "Ambala",
+      "Yamuna Nagar"
+    ],
+    "states": [
+      "Haryana"
+    ],
+    "method": "spatial_intersection"
+  }
+}

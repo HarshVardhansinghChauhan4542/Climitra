@@ -1,0 +1,1105 @@
+{
+  "0": {
+    "districts": [
+      "Amritsar",
+      "Ludhiana"
+    ],
+    "states": [
+      "Punjab"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "1": {
+    "districts": [
+      "Amritsar",
+      "Ludhiana"
+    ],
+    "states": [
+      "Punjab"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "2": {
+    "districts": [
+      "Amritsar",
+      "Ludhiana"
+    ],
+    "states": [
+      "Punjab"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "3": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "4": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "5": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "6": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "7": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "8": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "9": {
+    "districts": [
+      "Lucknow",
+      "Agra",
+      "Varanasi"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "10": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "11": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "12": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "13": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "14": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "15": {
+    "districts": [
+      "Lucknow",
+      "Agra",
+      "Varanasi"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "16": {
+    "districts": [
+      "Lucknow",
+      "Agra",
+      "Varanasi"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "17": {
+    "districts": [
+      "Unknown District"
+    ],
+    "states": [
+      "Unknown State"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "18": {
+    "districts": [
+      "Bhubaneswar",
+      "Cuttack"
+    ],
+    "states": [
+      "Odisha"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "19": {
+    "districts": [
+      "Bhubaneswar",
+      "Cuttack"
+    ],
+    "states": [
+      "Odisha"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "20": {
+    "districts": [
+      "Bhubaneswar",
+      "Cuttack"
+    ],
+    "states": [
+      "Odisha"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "21": {
+    "districts": [
+      "Hyderabad",
+      "Visakhapatnam"
+    ],
+    "states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "22": {
+    "districts": [
+      "Hyderabad",
+      "Visakhapatnam"
+    ],
+    "states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "23": {
+    "districts": [
+      "Hyderabad",
+      "Visakhapatnam"
+    ],
+    "states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "24": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "25": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "26": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "27": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "28": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "29": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "30": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "31": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "32": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "33": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "34": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "35": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "36": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "37": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "38": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "39": {
+    "districts": [
+      "Bhopal",
+      "Indore",
+      "Jabalpur"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "40": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "41": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "42": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "43": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "44": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "45": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "46": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "47": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "48": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "49": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "50": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "51": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "52": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "53": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "54": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "55": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "56": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "57": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "58": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "59": {
+    "districts": [
+      "Jodhpur",
+      "Jaipur",
+      "Bikaner"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "60": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "61": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "62": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "63": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "64": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "65": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "66": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "67": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "68": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "69": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "70": {
+    "districts": [
+      "Ahmedabad",
+      "Rajkot",
+      "Surat"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "71": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "72": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "73": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "74": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "75": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "76": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "77": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "78": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "79": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "80": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "81": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "82": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "83": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "84": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "85": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "86": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "87": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "88": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "89": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "90": {
+    "districts": [
+      "Mumbai",
+      "Pune",
+      "Nagpur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "91": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "92": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "93": {
+    "districts": [
+      "Chennai",
+      "Coimbatore",
+      "Madurai"
+    ],
+    "states": [
+      "Tamil Nadu"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "94": {
+    "districts": [
+      "Hyderabad",
+      "Visakhapatnam"
+    ],
+    "states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "95": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "96": {
+    "districts": [
+      "Chennai",
+      "Coimbatore",
+      "Madurai"
+    ],
+    "states": [
+      "Tamil Nadu"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "97": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "98": {
+    "districts": [
+      "Bangalore",
+      "Mysore",
+      "Belgaum"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "99": {
+    "districts": [
+      "Chennai",
+      "Coimbatore",
+      "Madurai"
+    ],
+    "states": [
+      "Tamil Nadu"
+    ],
+    "method": "coordinate_estimation"
+  },
+  "100": {
+    "districts": [
+      "Chennai",
+      "Coimbatore",
+      "Madurai"
+    ],
+    "states": [
+      "Tamil Nadu"
+    ],
+    "method": "coordinate_estimation"
+  }
+}

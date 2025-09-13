@@ -1,0 +1,354 @@
+{
+  "0": {
+    "districts": [
+      "Kachchh"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "method": "spatial_intersection"
+  },
+  "1": {
+    "districts": [
+      "Barmer",
+      "Bikaner",
+      "Jaisalmer",
+      "Jodhpur"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "spatial_intersection"
+  },
+  "2": {
+    "districts": [
+      "Chittoor",
+      "Bangalore Rural",
+      "Bangalore Urban",
+      "Chamrajnagar",
+      "Kolar",
+      "Mandya",
+      "Mysore",
+      "Dharmapuri",
+      "Erode",
+      "Namakkal",
+      "Salem",
+      "Tiruvannamalai",
+      "Vellore",
+      "Villupuram"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Karnataka",
+      "Tamil Nadu"
+    ],
+    "method": "spatial_intersection"
+  },
+  "3": {
+    "districts": [
+      "Anantapur",
+      "Kurnool",
+      "Bellary",
+      "Chitradurga",
+      "Koppal",
+      "Raichur",
+      "Tumkur"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "method": "spatial_intersection"
+  },
+  "4": {
+    "districts": [
+      "Bidar",
+      "Bijapur",
+      "Gulbarga",
+      "Raichur",
+      "Osmanabad",
+      "Solapur"
+    ],
+    "states": [
+      "Karnataka",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "5": {
+    "districts": [
+      "Vadodara",
+      "Barwani",
+      "Dhar",
+      "Indore",
+      "Jhabua",
+      "West Nimar",
+      "Dhule",
+      "Nandurbar"
+    ],
+    "states": [
+      "Gujarat",
+      "Madhya Pradesh",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "6": {
+    "districts": [
+      "Ahmednagar",
+      "Bid",
+      "Osmanabad",
+      "Pune",
+      "Satara",
+      "Solapur"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "7": {
+    "districts": [
+      "Bastar",
+      "Dhamtari",
+      "Kanker",
+      "Raipur",
+      "Kalahandi",
+      "Nabarangpur",
+      "Nuapada"
+    ],
+    "states": [
+      "Chhattisgarh",
+      "Orissa"
+    ],
+    "method": "spatial_intersection"
+  },
+  "8": {
+    "districts": [
+      "Datia",
+      "Gwalior",
+      "Morena",
+      "Sheopur",
+      "Shivpuri",
+      "Baran",
+      "Dhaulpur",
+      "Karauli"
+    ],
+    "states": [
+      "Madhya Pradesh",
+      "Rajasthan"
+    ],
+    "method": "spatial_intersection"
+  },
+  "9": {
+    "districts": [
+      "Rewa",
+      "Allahabad",
+      "Banda",
+      "Chitrakoot",
+      "Fatehpur",
+      "Jaunpur",
+      "Kaushambi",
+      "Mirzapur",
+      "Pratapgarh",
+      "Rae Bareli",
+      "Sant Ravi Das Nagar",
+      "Sultanpur"
+    ],
+    "states": [
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "10": {
+    "districts": [
+      "Amritsar",
+      "Faridkot",
+      "Firozpur",
+      "Jalandhar",
+      "Kapurthala",
+      "Ludhiana",
+      "Moga"
+    ],
+    "states": [
+      "Punjab"
+    ],
+    "method": "spatial_intersection"
+  },
+  "11": {
+    "districts": [
+      "Bikaner",
+      "Churu",
+      "Ganganagar",
+      "Jaisalmer",
+      "Jodhpur",
+      "Nagaur"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "spatial_intersection"
+  },
+  "12": {
+    "districts": [
+      "Adilabad",
+      "Medak",
+      "Nizamabad",
+      "Rangareddi",
+      "Bidar",
+      "Gulbarga",
+      "Latur",
+      "Nanded",
+      "Osmanabad",
+      "Parbhani"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Karnataka",
+      "Maharashtra"
+    ],
+    "method": "spatial_intersection"
+  },
+  "13": {
+    "districts": [
+      "Faridabad",
+      "Gurgaon",
+      "Bharatpur",
+      "Aligarh",
+      "Bulandshahr",
+      "Gautam Buddha Nagar",
+      "Hathras",
+      "Mathura"
+    ],
+    "states": [
+      "Haryana",
+      "Rajasthan",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "14": {
+    "districts": [
+      "Bhiwani",
+      "Fatehabad",
+      "Hisar",
+      "Jind",
+      "Kaithal",
+      "Karnal",
+      "Panipat",
+      "Rohtak",
+      "Sonepat"
+    ],
+    "states": [
+      "Haryana"
+    ],
+    "method": "spatial_intersection"
+  },
+  "15": {
+    "districts": [
+      "Ajmer",
+      "Bhilwara",
+      "Jodhpur",
+      "Nagaur",
+      "Pali",
+      "Rajsamand"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "spatial_intersection"
+  },
+  "16": {
+    "districts": [
+      "Churu",
+      "Jhunjhunun",
+      "Sikar"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "method": "spatial_intersection"
+  },
+  "17": {
+    "districts": [
+      "Tikamgarh"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "18": {
+    "districts": [
+      "Panna",
+      "Satna",
+      "Banda"
+    ],
+    "states": [
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "19": {
+    "districts": [
+      "Surguja"
+    ],
+    "states": [
+      "Chhattisgarh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "20": {
+    "districts": [
+      "Garhwa"
+    ],
+    "states": [
+      "Jharkhand"
+    ],
+    "method": "spatial_intersection"
+  },
+  "21": {
+    "districts": [
+      "Aurangabad",
+      "Bhabua",
+      "Rohtas",
+      "Garhwa",
+      "Palamu",
+      "Chandauli",
+      "Sonbhadra"
+    ],
+    "states": [
+      "Bihar",
+      "Jharkhand",
+      "Uttar Pradesh"
+    ],
+    "method": "spatial_intersection"
+  },
+  "22": {
+    "districts": [
+      "Jharsuguda",
+      "Sambalpur",
+      "Sundargarh"
+    ],
+    "states": [
+      "Orissa"
+    ],
+    "method": "spatial_intersection"
+  },
+  "23": {
+    "districts": [
+      "Chittoor",
+      "Cuddapah",
+      "Nellore",
+      "Thiruvallur",
+      "Vellore"
+    ],
+    "states": [
+      "Andhra Pradesh",
+      "Tamil Nadu"
+    ],
+    "method": "spatial_intersection"
+  }
+}
