@@ -584,6 +584,48 @@ if section == "Dashboard":
     name_filter = st.text_input("Search Name (Plant/Company/Rice Mill)")
     state_filter = st.multiselect("State", options=plants["state"].dropna().unique())
     district_filter = st.multiselect("District", options=plants["district"].dropna().unique())
+    
+    # Operational Status Filter - only show if data contains operational status
+    operational_status_col = None
+    for col in ["Operational", "Operational Status", "Status"]:
+        if col in plants.columns:
+            operational_status_col = col
+            break
+    
+    if operational_status_col:
+        # Get unique operational status values, excluding NaN
+        operational_statuses = plants[operational_status_col].dropna().unique()
+        if len(operational_statuses) > 0:
+            operational_status_filter = st.multiselect(
+                "Operational Status", 
+                options=operational_statuses,
+                help="Filter by operational status (e.g., Active, Not in production)"
+            )
+        else:
+            operational_status_filter = []
+    else:
+        operational_status_filter = []
+    
+    # Furnace Type Filter - only show if data contains furnace type
+    furnace_type_col = None
+    for col in ["Furnance", "Furnace Type", "Furnace_Type"]:
+        if col in plants.columns:
+            furnace_type_col = col
+            break
+    
+    if furnace_type_col:
+        # Get unique furnace type values, excluding NaN
+        furnace_types = plants[furnace_type_col].dropna().unique()
+        if len(furnace_types) > 0:
+            furnace_type_filter = st.multiselect(
+                "Furnace Type", 
+                options=furnace_types,
+                help="Filter by furnace type (e.g., BF, IF, DRI, etc.)"
+            )
+        else:
+            furnace_type_filter = []
+    else:
+        furnace_type_filter = []
 
     filtered_plants = plants.copy()
     if name_filter:
@@ -597,6 +639,10 @@ if section == "Dashboard":
         filtered_plants = filtered_plants[filtered_plants["state"].isin(state_filter)]
     if district_filter:
         filtered_plants = filtered_plants[filtered_plants["district"].isin(district_filter)]
+    if operational_status_filter and operational_status_col:
+        filtered_plants = filtered_plants[filtered_plants[operational_status_col].isin(operational_status_filter)]
+    if furnace_type_filter and furnace_type_col:
+        filtered_plants = filtered_plants[filtered_plants[furnace_type_col].isin(furnace_type_filter)]
 
     # --- DISPLAY SEARCH RESULTS ---
     if name_filter and not filtered_plants.empty:
@@ -887,19 +933,71 @@ if section == "Dashboard":
             st.markdown("---")
             st.markdown(f"#### 📋 Filtered Plant List ({len(filtered_plants)} plants)")
             
+            # Pagination controls
+            # Initialize session state for pagination if not exists
+            if 'page_size' not in st.session_state:
+                st.session_state.page_size = 10
+            if 'current_page' not in st.session_state:
+                st.session_state.current_page = 1
+            
+            # Create columns for pagination controls and page size selection
+            pagination_col1, pagination_col2, pagination_col3 = st.columns([2, 1, 2])
+            
+            with pagination_col1:
+                # Previous button
+                if st.session_state.current_page > 1:
+                    if st.button("⬅️ Previous", key="prev_page"):
+                        st.session_state.current_page -= 1
+                        st.rerun()
+                else:
+                    st.button("⬅️ Previous", key="prev_page", disabled=True)
+            
+            with pagination_col2:
+                # Page size selector
+                page_size = st.selectbox(
+                    "Items per page:",
+                    [10, 20, 50],
+                    index=[10, 20, 50].index(st.session_state.page_size),
+                    key="page_size_select"
+                )
+                if page_size != st.session_state.page_size:
+                    st.session_state.page_size = page_size
+                    st.session_state.current_page = 1  # Reset to first page when page size changes
+                    st.rerun()
+            
+            with pagination_col3:
+                # Next button
+                total_pages = math.ceil(len(filtered_plants) / st.session_state.page_size)
+                if st.session_state.current_page < total_pages:
+                    if st.button("Next ➡️", key="next_page"):
+                        st.session_state.current_page += 1
+                        st.rerun()
+                else:
+                    st.button("Next ➡️", key="next_page", disabled=True)
+            
+            # Page info
+            total_pages = math.ceil(len(filtered_plants) / st.session_state.page_size)
+            start_idx = (st.session_state.current_page - 1) * st.session_state.page_size
+            end_idx = min(start_idx + st.session_state.page_size, len(filtered_plants))
+            
+            st.markdown(f"**Page {st.session_state.current_page} of {total_pages}** (Showing items {start_idx + 1}-{end_idx} of {len(filtered_plants)})")
+            
             # Create columns for better layout
             col1, col2 = st.columns([3, 1])
             
             with col1:
+                # Get paginated data
+                paginated_plants = filtered_plants.iloc[start_idx:end_idx]
+                
                 # Group by source type for better organization
                 for source in data_sources:
-                    source_df = filtered_plants[filtered_plants['source_type'] == source]
+                    source_df = paginated_plants[paginated_plants['source_type'] == source]
                     if source_df.empty:
                         continue
                     
                     st.markdown(f"**{source}** ({len(source_df)} plants)")
                     
-                    # Create a scrollable container for the plant list
+                    # Create a container for the paginated plant list
                     with st.container():
                         for index, row in source_df.iterrows():
                             # Determine plant name based on source type
@@ -940,6 +1038,7 @@ if section == "Dashboard":
                 # Summary statistics
                 st.markdown("#### 📊 Summary")
                 st.write(f"**Total Plants:** {len(filtered_plants)}")
+                st.write(f"**Current Page:** {st.session_state.current_page}/{total_pages}")
                 
                 # Show counts by source type
                 for source in data_sources:
@@ -959,27 +1058,119 @@ if section == "Dashboard":
                 # Show counts by operational status if available
                 if 'Operational' in filtered_plants.columns:
                     st.markdown("---")
-                    st.markdown("**By Status:**")
+                    
+                    # Get status counts
                     status_counts = filtered_plants['Operational'].value_counts()
-                    for status, count in status_counts.items():
+                    total_count = len(filtered_plants[filtered_plants['Operational'].notna()])
+                    
+                    # Define main statuses and special cases
+                    main_statuses = ['Active', 'NP', 'A']
+                    special_cases = []
+                    
+                    # Separate main statuses from special cases
+                    for status in status_counts.index:
                         if pd.notna(status):
-                            st.write(f"**{status}:** {count}")
+                        # Normalize status for comparison (strip whitespace, case-insensitive)
+                            normalized_status = str(status).strip().lower()
+                            is_main_status = False
+                            for main_status in main_statuses:
+                                if normalized_status == main_status.strip().lower():
+                                    is_main_status = True
+                                    break
+                            
+                            if is_main_status:
+                                continue  # Will handle main statuses separately
+                            else:
+                                special_cases.append(status)
+                    
+                    # Display total count
+                    st.markdown(f"**Statuses (Total: {total_count})**")
+                    
+                    # Display main statuses
+                    for main_status in main_statuses:
+                        # Find matching status in data (case-insensitive, whitespace-insensitive)
+                        found_status = None
+                        for status in status_counts.index:
+                            if pd.notna(status) and str(status).strip().lower() == main_status.strip().lower():
+                                found_status = status
+                                break
+                        
+                        if found_status is not None:
+                            count = status_counts[found_status]
+                            st.write(f"  • {found_status}: {count}")
+                    
+                    # Display special cases in expandable section if any exist
+                    if special_cases:
+                        with st.expander("Special Cases (expand ▼)"):
+                            for status in special_cases:
+                                count = status_counts[status]
+                                st.write(f"       - {status}: {count}")
                 
                 # Show counts by furnace type if available
-                if 'Furnance' in filtered_plants.columns:
+                furnace_col = None
+                for col in ['Furnance', 'Furnace Type', 'Furnace_Type']:
+                    if col in filtered_plants.columns:
+                        furnace_col = col
+                        break
+                
+                if furnace_col:
                     st.markdown("---")
-                    st.markdown("**By Furnace Type:**")
-                    furnace_counts = filtered_plants['Furnance'].value_counts()
-                    for furnace_type, count in furnace_counts.items():
+                    
+                    # Get furnace type counts
+                    furnace_counts = filtered_plants[furnace_col].value_counts()
+                    total_count = len(filtered_plants[filtered_plants[furnace_col].notna()])
+                    
+                    # Define main furnace categories and their subtypes
+                    main_furnace_types = ['IF', 'RM', 'EAF', 'BF', 'DRI']
+                    furnace_categories = {}
+                    
+                    # Categorize furnace types
+                    for furnace_type in furnace_counts.index:
                         if pd.notna(furnace_type):
-                            st.write(f"**{furnace_type}:** {count}")
-                elif 'Furnace Type' in filtered_plants.columns:
-                    st.markdown("---")
-                    st.markdown("**By Furnace Type:**")
-                    furnace_counts = filtered_plants['Furnace Type'].value_counts()
-                    for furnace_type, count in furnace_counts.items():
-                        if pd.notna(furnace_type):
-                            st.write(f"**{furnace_type}:** {count}")
+                            furnace_str = str(furnace_type).strip()
+                            
+                            # Determine primary category
+                            primary_category = None
+                            for main_type in main_furnace_types:
+                                if main_type in furnace_str:
+                                    primary_category = main_type
+                                    break
+                            
+                            if primary_category is None:
+                                primary_category = 'Other'
+                            
+                            # Add to category
+                            if primary_category not in furnace_categories:
+                                furnace_categories[primary_category] = {}
+                            furnace_categories[primary_category][furnace_type] = furnace_counts[furnace_type]
+                    
+                    # Display total count
+                    st.markdown(f"**Furnace Types (Total: {total_count})**")
+                    
+                    # Display main furnace categories
+                    for main_type in main_furnace_types:
+                        if main_type in furnace_categories:
+                            category_total = sum(furnace_categories[main_type].values())
+                            
+                            # Check if this category has multiple subtypes
+                            subtypes = furnace_categories[main_type]
+                            
+                            if len(subtypes) == 1 and list(subtypes.keys())[0] == main_type:
+                                # Single subtype that matches the main type
+                                furnace_subtype = list(subtypes.keys())[0]
+                                count = subtypes[furnace_subtype]
+                                st.write(f"  • {main_type}: {count}")
+                            else:
+                                # Multiple subtypes or complex combinations
+                                with st.expander(f"▶ {main_type} ({category_total})"):
+                                    for furnace_subtype, count in subtypes.items():
+                                        st.write(f"   • {furnace_subtype}: {count}")
+                    
+                    # Display Other category if it exists
+                    if 'Other' in furnace_categories:
+                        with st.expander(f"▶ Other ({sum(furnace_categories['Other'].values())})"):
+                            for furnace_subtype, count in furnace_categories['Other'].items():
+                                st.write(f"   • {furnace_subtype}: {count}")
     else:
         st.info("Map visualization not available - coordinate data missing.")
 
