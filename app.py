@@ -4,6 +4,7 @@ import math
 import streamlit as st
 import json
 import os
+import re
 from PIL import Image
 import base64
 import streamlit.components.v1 as components
@@ -614,13 +615,24 @@ if section == "Dashboard":
             break
     
     if furnace_type_col:
-        # Get unique furnace type values, excluding NaN
-        furnace_types = plants[furnace_type_col].dropna().unique()
-        if len(furnace_types) > 0:
+        # Extract unique furnace types from combinations
+        unique_furnace_types = set()
+        furnace_types_raw = plants[furnace_type_col].dropna()
+        
+        for furnace_combo in furnace_types_raw:
+            if pd.notna(furnace_combo):
+                # Split by comma and clean each type
+                types = [str(t).strip() for t in str(furnace_combo).split(',')]
+                unique_furnace_types.update(types)
+        
+        # Remove empty strings and sort
+        unique_furnace_types = [t for t in sorted(unique_furnace_types) if t]
+        
+        if len(unique_furnace_types) > 0:
             furnace_type_filter = st.multiselect(
                 "Furnace Type", 
-                options=furnace_types,
-                help="Filter by furnace type (e.g., BF, IF, DRI, etc.)"
+                options=unique_furnace_types,
+                help="Select furnace types (e.g., BF, IF, DRI, etc.)"
             )
         else:
             furnace_type_filter = []
@@ -642,7 +654,14 @@ if section == "Dashboard":
     if operational_status_filter and operational_status_col:
         filtered_plants = filtered_plants[filtered_plants[operational_status_col].isin(operational_status_filter)]
     if furnace_type_filter and furnace_type_col:
-        filtered_plants = filtered_plants[filtered_plants[furnace_type_col].isin(furnace_type_filter)]
+        # Create mask for plants that have any of the selected furnace types
+        furnace_mask = pd.Series([False]*len(filtered_plants))
+        for selected_type in furnace_type_filter:
+            # Check if selected type is present in the furnace combination
+            furnace_mask = furnace_mask | filtered_plants[furnace_type_col].astype(str).str.contains(
+                f'\\b{re.escape(selected_type)}\\b', case=False, na=False
+            )
+        filtered_plants = filtered_plants[furnace_mask]
 
     # --- DISPLAY SEARCH RESULTS ---
     if name_filter and not filtered_plants.empty:
@@ -933,12 +952,36 @@ if section == "Dashboard":
             st.markdown("---")
             st.markdown(f"#### 📋 Filtered Plant List ({len(filtered_plants)} plants)")
             
+            # Apply data source filtering for col1 display
+            if len(data_sources) > 1:
+                col1_data_sources = st.multiselect(
+                    "Show in list:",
+                    options=data_sources,
+                    default=data_sources,
+                    help="Select which data sources to display in the list below"
+                )
+            else:
+                col1_data_sources = data_sources
+            
+            # Filter data for col1 display
+            col1_filtered_plants = filtered_plants[filtered_plants['source_type'].isin(col1_data_sources)]
+            
             # Pagination controls
             # Initialize session state for pagination if not exists
-            if 'page_size' not in st.session_state:
-                st.session_state.page_size = 10
             if 'current_page' not in st.session_state:
                 st.session_state.current_page = 1
+            if 'page_size' not in st.session_state:
+                st.session_state.page_size = 10
+            
+            # Calculate pagination based on filtered data
+            total_pages = math.ceil(len(col1_filtered_plants) / st.session_state.page_size)
+            
+            # Reset to page 1 if current page is out of bounds
+            if st.session_state.current_page > total_pages:
+                st.session_state.current_page = 1
+            
+            start_idx = (st.session_state.current_page - 1) * st.session_state.page_size
+            end_idx = min(start_idx + st.session_state.page_size, len(col1_filtered_plants))
             
             # Create columns for pagination controls and page size selection
             pagination_col1, pagination_col2, pagination_col3 = st.columns([2, 1, 2])
@@ -956,18 +999,17 @@ if section == "Dashboard":
                 # Page size selector
                 page_size = st.selectbox(
                     "Items per page:",
-                    [10, 20, 50],
-                    index=[10, 20, 50].index(st.session_state.page_size),
-                    key="page_size_select"
+                    [5, 10, 20, 50],
+                    index=1,  # Default to 10
+                    key="page_size"
                 )
                 if page_size != st.session_state.page_size:
                     st.session_state.page_size = page_size
-                    st.session_state.current_page = 1  # Reset to first page when page size changes
+                    st.session_state.current_page = 1
                     st.rerun()
             
             with pagination_col3:
                 # Next button
-                total_pages = math.ceil(len(filtered_plants) / st.session_state.page_size)
                 if st.session_state.current_page < total_pages:
                     if st.button("Next ➡️", key="next_page"):
                         st.session_state.current_page += 1
@@ -976,21 +1018,17 @@ if section == "Dashboard":
                     st.button("Next ➡️", key="next_page", disabled=True)
             
             # Page info
-            total_pages = math.ceil(len(filtered_plants) / st.session_state.page_size)
-            start_idx = (st.session_state.current_page - 1) * st.session_state.page_size
-            end_idx = min(start_idx + st.session_state.page_size, len(filtered_plants))
-            
-            st.markdown(f"**Page {st.session_state.current_page} of {total_pages}** (Showing items {start_idx + 1}-{end_idx} of {len(filtered_plants)})")
+            st.markdown(f"**Page {st.session_state.current_page} of {total_pages}** (Showing items {start_idx + 1}-{end_idx} of {len(col1_filtered_plants)})")
             
             # Create columns for better layout
             col1, col2 = st.columns([3, 1])
             
             with col1:
-                # Get paginated data
-                paginated_plants = filtered_plants.iloc[start_idx:end_idx]
+                # Get paginated data from the filtered results
+                paginated_plants = col1_filtered_plants.iloc[start_idx:end_idx]
                 
                 # Group by source type for better organization
-                for source in data_sources:
+                for source in col1_data_sources:
                     source_df = paginated_plants[paginated_plants['source_type'] == source]
                     if source_df.empty:
                         continue
@@ -1063,41 +1101,42 @@ if section == "Dashboard":
                     status_counts = filtered_plants['Operational'].value_counts()
                     total_count = len(filtered_plants[filtered_plants['Operational'].notna()])
                     
-                    # Define main statuses and special cases
-                    main_statuses = ['Active', 'NP', 'A']
-                    special_cases = []
-                    
-                    # Separate main statuses from special cases
-                    for status in status_counts.index:
-                        if pd.notna(status):
-                        # Normalize status for comparison (strip whitespace, case-insensitive)
-                            normalized_status = str(status).strip().lower()
-                            is_main_status = False
-                            for main_status in main_statuses:
-                                if normalized_status == main_status.strip().lower():
-                                    is_main_status = True
+                    if total_count > 0:
+                        # Define main statuses and special cases
+                        main_statuses = ['Active', 'NP', 'A']
+                        special_cases = []
+                        
+                        # Separate main statuses from special cases
+                        for status in status_counts.index:
+                            if pd.notna(status):
+                                # Normalize status for comparison (strip whitespace, case-insensitive)
+                                normalized_status = str(status).strip().lower()
+                                is_main_status = False
+                                for main_status in main_statuses:
+                                    if normalized_status == main_status.strip().lower():
+                                        is_main_status = True
+                                        break
+                                
+                                if is_main_status:
+                                    continue  # Will handle main statuses separately
+                                else:
+                                    special_cases.append(status)
+                        
+                        # Display total count
+                        st.markdown(f"**Statuses (Total: {total_count})**")
+                        
+                        # Display main statuses
+                        for main_status in main_statuses:
+                            # Find matching status in data (case-insensitive, whitespace-insensitive)
+                            found_status = None
+                            for status in status_counts.index:
+                                if pd.notna(status) and str(status).strip().lower() == main_status.strip().lower():
+                                    found_status = status
                                     break
                             
-                            if is_main_status:
-                                continue  # Will handle main statuses separately
-                            else:
-                                special_cases.append(status)
-                    
-                    # Display total count
-                    st.markdown(f"**Statuses (Total: {total_count})**")
-                    
-                    # Display main statuses
-                    for main_status in main_statuses:
-                        # Find matching status in data (case-insensitive, whitespace-insensitive)
-                        found_status = None
-                        for status in status_counts.index:
-                            if pd.notna(status) and str(status).strip().lower() == main_status.strip().lower():
-                                found_status = status
-                                break
-                        
-                        if found_status is not None:
-                            count = status_counts[found_status]
-                            st.write(f"  • {found_status}: {count}")
+                            if found_status is not None:
+                                count = status_counts[found_status]
+                                st.write(f"  • {found_status}: {count}")
                     
                     # Display special cases in expandable section if any exist
                     if special_cases:
