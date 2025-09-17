@@ -952,92 +952,82 @@ if section == "Dashboard":
             st.markdown("---")
             st.markdown(f"#### 📋 Filtered Plant List ({len(filtered_plants)} plants)")
             
-            # Apply data source filtering for col1 display
-            if len(data_sources) > 1:
-                col1_data_sources = st.multiselect(
-                    "Show in list:",
-                    options=data_sources,
-                    default=data_sources,
-                    help="Select which data sources to display in the list below"
-                )
-            else:
-                col1_data_sources = data_sources
-            
-            # Filter data for col1 display
-            col1_filtered_plants = filtered_plants[filtered_plants['source_type'].isin(col1_data_sources)]
-            
-            # Pagination controls
-            # Initialize session state for pagination if not exists
-            if 'current_page' not in st.session_state:
-                st.session_state.current_page = 1
-            if 'page_size' not in st.session_state:
-                st.session_state.page_size = 10
-            
-            # Calculate pagination based on filtered data
-            total_pages = math.ceil(len(col1_filtered_plants) / st.session_state.page_size)
-            
-            # Reset to page 1 if current page is out of bounds
-            if st.session_state.current_page > total_pages:
-                st.session_state.current_page = 1
-            
-            start_idx = (st.session_state.current_page - 1) * st.session_state.page_size
-            end_idx = min(start_idx + st.session_state.page_size, len(col1_filtered_plants))
-            
-            # Create columns for pagination controls and page size selection
-            pagination_col1, pagination_col2, pagination_col3 = st.columns([2, 1, 2])
-            
-            with pagination_col1:
-                # Previous button
-                if st.session_state.current_page > 1:
-                    if st.button("⬅️ Previous", key="prev_page"):
-                        st.session_state.current_page -= 1
-                        st.rerun()
-                else:
-                    st.button("⬅️ Previous", key="prev_page", disabled=True)
-            
-            with pagination_col2:
-                # Page size selector
-                page_size = st.selectbox(
-                    "Items per page:",
-                    [5, 10, 20, 50],
-                    index=1,  # Default to 10
-                    key="page_size"
-                )
-                if page_size != st.session_state.page_size:
-                    st.session_state.page_size = page_size
-                    st.session_state.current_page = 1
-                    st.rerun()
-            
-            with pagination_col3:
-                # Next button
-                if st.session_state.current_page < total_pages:
-                    if st.button("Next ➡️", key="next_page"):
-                        st.session_state.current_page += 1
-                        st.rerun()
-                else:
-                    st.button("Next ➡️", key="next_page", disabled=True)
-            
-            # Page info
-            st.markdown(f"**Page {st.session_state.current_page} of {total_pages}** (Showing items {start_idx + 1}-{end_idx} of {len(col1_filtered_plants)})")
-            
             # Create columns for better layout
             col1, col2 = st.columns([3, 1])
             
             with col1:
-                # Get paginated data from the filtered results
-                paginated_plants = col1_filtered_plants.iloc[start_idx:end_idx]
-                
-                # Group by source type for better organization
-                for source in col1_data_sources:
-                    source_df = paginated_plants[paginated_plants['source_type'] == source]
-                    if source_df.empty:
+                # Show separate tables for each data source
+                for source in data_sources:
+                    source_data = filtered_plants[filtered_plants['source_type'] == source]
+                    
+                    if source_data.empty:
                         continue
                     
-                    st.markdown(f"**{source}** ({len(source_df)} plants)")
+                    # Create a section for each data source
+                    st.markdown(f"**{source}** ({len(source_data)} items)")
+                    
+                    # Initialize session state for pagination for each source
+                    page_key = f"{source.replace(' ', '_').lower()}_current_page"
+                    size_key = f"{source.replace(' ', '_').lower()}_page_size"
+                    
+                    if page_key not in st.session_state:
+                        st.session_state[page_key] = 1
+                    if size_key not in st.session_state:
+                        st.session_state[size_key] = 10
+                    
+                    # Calculate pagination for this source
+                    total_pages = math.ceil(len(source_data) / st.session_state[size_key])
+                    
+                    # Reset to page 1 if current page is out of bounds
+                    if st.session_state[page_key] > total_pages:
+                        st.session_state[page_key] = 1
+                    
+                    start_idx = (st.session_state[page_key] - 1) * st.session_state[size_key]
+                    end_idx = min(start_idx + st.session_state[size_key], len(source_data))
+                    
+                    # Create columns for pagination controls and page size selection
+                    pagination_col1, pagination_col2, pagination_col3 = st.columns([2, 1, 2])
+                    
+                    with pagination_col1:
+                        # Previous button
+                        if st.session_state[page_key] > 1:
+                            if st.button("⬅️ Previous", key=f"prev_{page_key}"):
+                                st.session_state[page_key] -= 1
+                                st.rerun()
+                        else:
+                            st.button("⬅️ Previous", key=f"prev_{page_key}", disabled=True)
+                    
+                    with pagination_col2:
+                        # Page size selector
+                        page_size = st.selectbox(
+                            "Items per page:",
+                            [5, 10, 20, 50],
+                            index=1,  # Default to 10
+                            key=size_key
+                        )
+                        if page_size != st.session_state[size_key]:
+                            st.session_state[size_key] = page_size
+                            st.session_state[page_key] = 1
+                            st.rerun()
+                    
+                    with pagination_col3:
+                        # Next button
+                        if st.session_state[page_key] < total_pages:
+                            if st.button("Next ➡️", key=f"next_{page_key}"):
+                                st.session_state[page_key] += 1
+                                st.rerun()
+                        else:
+                            st.button("Next ➡️", key=f"next_{page_key}", disabled=True)
+                    
+                    # Page info
+                    st.markdown(f"**Page {st.session_state[page_key]} of {total_pages}** (Showing items {start_idx + 1}-{end_idx} of {len(source_data)})")
+                    
+                    # Get paginated data for this source
+                    paginated_data = source_data.iloc[start_idx:end_idx]
                     
                     # Create a container for the paginated plant list
                     with st.container():
-                        for index, row in source_df.iterrows():
+                        for index, row in paginated_data.iterrows():
                             # Determine plant name based on source type
                             if source in ["Steel Plants", "Steel Plants with BF"]:
                                 plant_name = row.get('Plant Name', row.get('Plant', 'Unknown'))
@@ -1071,12 +1061,14 @@ if section == "Dashboard":
                                     st.write(f"**Address:** {address}")
                                     st.write(f"**State:** {row.get('state', 'N/A')}")
                                     st.write(f"**District:** {row.get('district', 'N/A')}")
+                    
+                    # Add separator between data sources
+                    st.markdown("---")
             
             with col2:
                 # Summary statistics
                 st.markdown("#### 📊 Summary")
                 st.write(f"**Total Plants:** {len(filtered_plants)}")
-                st.write(f"**Current Page:** {st.session_state.current_page}/{total_pages}")
                 
                 # Show counts by source type
                 for source in data_sources:
@@ -1137,13 +1129,13 @@ if section == "Dashboard":
                             if found_status is not None:
                                 count = status_counts[found_status]
                                 st.write(f"  • {found_status}: {count}")
-                    
-                    # Display special cases in expandable section if any exist
-                    if special_cases:
-                        with st.expander("Special Cases (expand ▼)"):
-                            for status in special_cases:
-                                count = status_counts[status]
-                                st.write(f"       - {status}: {count}")
+                        
+                        # Display special cases in expandable section if any exist
+                        if special_cases:
+                            with st.expander("Special Cases (expand ▼)"):
+                                for status in special_cases:
+                                    count = status_counts[status]
+                                    st.write(f"       - {status}: {count}")
                 
                 # Show counts by furnace type if available
                 furnace_col = None
