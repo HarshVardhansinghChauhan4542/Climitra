@@ -1340,8 +1340,13 @@ if section == "Dashboard":
                             st.write(f"**Website:** {company_url if pd.notna(company_url) else 'N/A'}")
         st.markdown("---")
 
-    geojson_file1 = st.selectbox("Select Primary GeoJSON Overlay:", ["None"] + list(geojson_metadata.keys()), key="geo1")
-    geojson_file2 = st.selectbox("Select Comparison GeoJSON Overlay (optional):", ["None"] + list(geojson_metadata.keys()), key="geo2")
+    # Multiple selection for primary GeoJSON overlays
+    selected_geojson_files = st.multiselect(
+        "Select Primary GeoJSON Overlays:", 
+        list(geojson_metadata.keys()),
+        default=[],
+        key="primary_geojson_overlays"
+    )
 
     def show_metadata_and_image(geojson_file):
         meta = geojson_metadata.get(geojson_file, {})
@@ -1370,10 +1375,9 @@ if section == "Dashboard":
             if os.path.exists(meta.get("image_path", "")):
                 st.image(meta["image_path"], caption="Source Reference Map", use_column_width=True)
 
-    if geojson_file1 != "None":
-        show_metadata_and_image(geojson_file1)
-    if geojson_file2 != "None":
-        show_metadata_and_image(geojson_file2)
+    # Show metadata for all selected GeoJSON files
+    for geojson_file in selected_geojson_files:
+        show_metadata_and_image(geojson_file)
 
     if not filtered_plants.empty:
         # Show count summary for all selected sources
@@ -1445,14 +1449,24 @@ if section == "Dashboard":
             margin={"r":0,"t":0,"l":0,"b":0}
         )
 
-        overlay_colors = {
-            geojson_file1: "rgba(255, 165, 0, 0.5)",
-            geojson_file2: "rgba(0, 128, 255, 0.5)"
-        }
+        # Define colors for multiple overlays
+        base_colors = [
+            "rgba(255, 165, 0, 0.5)",  # Orange
+            "rgba(0, 128, 255, 0.5)",   # Blue
+            "rgba(255, 0, 128, 0.5)",   # Pink
+            "rgba(0, 255, 128, 0.5)",   # Green
+            "rgba(128, 0, 255, 0.5)",   # Purple
+            "rgba(255, 128, 0, 0.5)",   # Dark Orange
+        ]
+        
+        # Create overlay colors dictionary for selected files
+        overlay_colors = {}
+        for i, geojson_file in enumerate(selected_geojson_files):
+            overlay_colors[geojson_file] = base_colors[i % len(base_colors)]
 
-        # Add polygons/overlays as before
-        for geojson_file in [geojson_file1, geojson_file2]:
-            if geojson_file != "None" and os.path.exists(geojson_file):
+        # Add polygons/overlays for all selected GeoJSON files
+        for geojson_file in selected_geojson_files:
+            if os.path.exists(geojson_file):
                 # Use chunked GeoJSON loading
                 geojson_data, is_chunked = load_geojson_chunked(geojson_file)
                 if geojson_data is None:
