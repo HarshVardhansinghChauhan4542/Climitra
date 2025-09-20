@@ -1,7 +1,6 @@
-import psutil
-
 def get_memory_usage_info():
     try:
+        import psutil
         process = psutil.Process()
         memory_info = process.memory_info()
         system_memory = psutil.virtual_memory()
