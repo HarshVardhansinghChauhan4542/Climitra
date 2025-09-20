@@ -1,0 +1,59 @@
+{
+    "enhanced_lantanapresence.geojson": {
+      "source": "Research Paper",
+      "external_link": "https://doi.org/10.1016/j.gecco.2020.e01080",
+      "recorded_time": "2020",
+      "description": "This layer shows Lantana camara presence clusters extracted from satellite NDVI and field survey data in India.",
+      "image_path": "lantana.png",
+      "original": "lantanapresence.geojson"
+    },
+    "enhanced_juliflora.geojson": {
+      "source": "Manual published by CAZRI, Jodhpur & HDRA, Coventry",
+      "external_link": "https://www.researchgate.net/publication/244993994_Managing_Prosopis_juliflora_A_Technical_Manual",
+      "recorded_time": "2001",
+      "description": "These dots show distribution of juliflora across Indian Map",
+      "image_path": "juliflora.png",
+      "original": "juliflora.geojson"
+    },
+    "enhanced_juliflorapdf.geojson": {
+      "source": "Manual published by CAZRI, Jodhpur & HDRA, Coventry",
+      "external_link": "https://www.researchgate.net/publication/244993994_Managing_Prosopis_juliflora_A_Technical_Manual",
+      "recorded_time": "2001",
+      "description": "Juliflora distribution extracted from PDF source",
+      "image_path": "juliflora.png",
+      "original": "juliflorapdf.geojson"
+    },
+    "enhanced_cottonstalk.geojson": {
+      "source": "Bhuvan Jaivoorja (ISRO)",
+      "external_link": "https://bhuvan-app1.nrsc.gov.in/bioenergy/index.php",
+      "recorded_time": "2016",
+      "description": "Surplus Cotton Biomass shown in this layer.",
+      "image_path": "Cotton.png",
+      "original": "cottonstalk.geojson"
+    },
+    "enhanced_sugarcane.geojson": {
+      "source": "Bhuvan Jaivoorja (ISRO)",
+      "external_link": "https://bhuvan-app1.nrsc.gov.in/bioenergy/index.php",
+      "recorded_time": "2016",
+      "description": "Surplus Sugarcane Biomass shown in this layer.",
+      "image_path": "sugarcane.png",
+      "original": "sugarcane.geojson"
+    },
+    "enhanced_maize.geojson": {
+      "source": "ICRISAT",
+      "external_link": "https://oar.icrisat.org/10759/1/maize%20yield%20India.pdf",
+      "recorded_time": "2018",
+      "description": "Major districts of maize in India with area sown.",
+      "image_path": "Maize.png",
+      "original": "maize.geojson"
+    },
+    "enhanced_bamboo.geojson": {
+      "source": "Zenodo Dataset",
+      "external_link": "https://doi.org/10.5281/zenodo.14671750",
+      "recorded_time": "2025",
+      "description": "Shows the Bamboo presence.",
+      "image_path": "bamboo.png",
+      "original": "bamboo.geojson"
+    }
+  }
+  

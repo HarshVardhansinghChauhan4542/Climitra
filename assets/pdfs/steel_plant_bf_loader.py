@@ -5,7 +5,7 @@ import streamlit as st
 def load_steel_plants_bf():
     try:
         # Load the steel plant BF data from the Excel file
-        df = pd.read_excel("steel_plant_bf.xlsx")
+        df = pd.read_excel("data/raw/steel_plant_bf.xlsx")
 
         # Dynamically handle latitude and longitude column names
         lat_col = next((col for col in df.columns if col.lower() in ["latitude", "lat"]), None)
