@@ -1,25 +1,17 @@
 import streamlit as st
 import pandas as pd
-
-# Data + preprocessing
 from src.data.loader import load_steel_plants, load_ricemill_data, load_geocoded_companies
 from src.data.preprocessing import optimize_dataframe_memory
 from src.data.filters import apply_all_filters
 from src.data.data_manager import load_and_merge_data, render_memory_info, render_debug_info
 from src.data.metadata_loader import load_geojson_metadata
-
-# UI
 from src.ui.filters import render_filters
 from src.ui.geojson_ui import render_geojson_overlay_selector
 from src.ui.map_plot import render_interactive_map
 from src.ui.crop_specific_data import render_crop_specific_data
 from src.ui.details import render_detailed_results
 from src.ui.summary import generate_data_summary, render_summary_panel
-
-# Utils
 from src.utils.memory_utils import get_memory_usage_info, cleanup_session_state
-
-# Pagination utilities
 from src.ui.pagination_utils import (
     get_source_data_by_type,
     get_or_init_session_state,
@@ -65,14 +57,14 @@ def _get_important_columns(data_source: str, all_columns: list) -> list:
     elif data_source == "Geocoded Companies":
         # Geocoded companies - show only essential details
         geocoded_cols = [
-            "Company", "State", "District", "City"
+            "State", "District", "Company_Name", "City"
         ]
         important_cols = [col for col in geocoded_cols if col in all_columns]
         
         # If essential columns not found, try alternatives
         if not important_cols:
             geocoded_alternatives = [
-                "Name", "latitude", "longitude"
+                "Company", "Name", "City", "latitude", "longitude"
             ]
             important_cols = [col for col in geocoded_alternatives if col in all_columns]
     
@@ -88,31 +80,33 @@ def render_sidebar():
     st.sidebar.header("Navigation")
     section = st.sidebar.radio(
         "Choose Section",
-        ["Dashboard", "Crop-Specific Data", "GeoJSON Map"]
+        ["Dashboard", "Crop-Specific Data"]
     )
     
-    # Data source selection - now multi-select
-    data_sources = st.sidebar.multiselect(
-        "Select Data Sources",
-        ["Steel Plants", "Steel Plants with BF", "Geocoded Companies", "Rice Mills"],
-        default=["Steel Plants"]
-    )
-    
-    plant_type = st.sidebar.selectbox("Select Plant Type", ["Steel", "Rice"])
-    min_capacity = st.sidebar.slider("Minimum Capacity", 0, 5000, 1000)
     show_map = st.sidebar.checkbox("Show Map", True)
-    return section, data_sources, plant_type, min_capacity, show_map
+    return section, None, show_map
 
 
 # ----------------------------
 # Dashboard Rendering
 # ----------------------------
-def render_main_dashboard(data_sources, min_capacity, show_map):
+def render_main_dashboard(data_sources, show_map):
     st.title("Climitra Steel Plant Dashboard")
     
-    if not data_sources:
+    # Move data source selection to dashboard as first filter
+    data_source_options = ["Steel Plants", "Steel Plants with BF", "Geocoded Companies", "Rice Mills"]
+    if data_sources is None:
+        # Fallback for initial call, default to Steel Plants
+        data_sources = ["Steel Plants"]
+    selected_data_sources = st.multiselect(
+        "Select Data Sources",
+        data_source_options,
+        default=data_sources if data_sources else ["Steel Plants"]
+    )
+    if not selected_data_sources:
         st.warning("Please select at least one data source.")
         return
+    data_sources = selected_data_sources
 
     # First, load a sample dataset to determine available filters
     sample_df = None
@@ -136,6 +130,11 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
     
     # Render filter UI once (using sample data to determine available filters)
     filters = render_filters(sample_df)
+    
+    # Add GEOJSON overlay selector below filters
+    st.markdown("---")
+    geojson_metadata = load_geojson_metadata()
+    selected_geojson_files = render_geojson_overlay_selector(geojson_metadata)
     
     all_filtered_data = {}
     all_data_for_map = []
@@ -162,10 +161,6 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
         df = optimize_dataframe_memory(df)
         # Add source_type column for compatibility with map plotting
         df["source_type"] = data_source
-
-        # Apply capacity filter
-        if "Capacity" in df.columns:
-            df = df[df["Capacity"] >= min_capacity]
 
         # Apply the same filters to all data sources
         filtered_plants = apply_all_filters(df, filters)
@@ -199,9 +194,9 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
         if "latitude" in combined_df.columns and "longitude" in combined_df.columns:
             map_data = combined_df[["latitude", "longitude", "source_type"]].dropna()
             if not map_data.empty:
-                st.subheader("🗺️ Combined Map View")
-                # Use the interactive map with color coding for different data sources
-                render_interactive_map(combined_df, data_sources, [])
+                st.subheader("🗺️ Combined Map View with GEOJSON Overlays")
+                # Use the interactive map with color coding for different data sources and GEOJSON overlays
+                render_interactive_map(combined_df, data_sources, selected_geojson_files)
                 st.caption(f"Showing {len(map_data)} locations from {len(data_sources)} data sources")
     
     st.markdown("---")
@@ -282,8 +277,10 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
                     # Display data as a simple table with specific columns
                     if not paginated_data.empty:
                         # Define columns based on data source type
-                        if source == 'Steel Plants' or source == 'Steel Plants with BF':
-                            desired_columns = ['Plant Name', 'Capacity', 'Furnace Type', 'Status', 'State', 'District']
+                        if source == 'Steel Plants':
+                            desired_columns = ['Plant Name', 'Furnace Type', 'Status', 'State', 'District']
+                        elif source == 'Steel Plants with BF':
+                            desired_columns = ['Plant', 'Plant Status', 'Subnational Unit', 'Main Production Equipment']
                         elif source == 'Rice Mills':
                             desired_columns = ['detailed_district', 'Name', 'Rice mill name', 'state', 'address']
                         elif source == 'Geocoded Companies':
@@ -293,14 +290,20 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
                             desired_columns = ['Name', 'State', 'District']
                         
                         # Define alternative column names based on data source type
-                        if source == 'Steel Plants' or source == 'Steel Plants with BF':
+                        if source == 'Steel Plants':
                             alt_columns = {
                                 'Plant Name': ['Plant', 'Name', 'Company'],
-                                'Capacity': ['Capacity'],
                                 'Furnace Type': ['Furnace Type', 'Furnace_Type', 'Furnance'],
                                 'Status': ['Operational', 'Operational Status'],
-                                'State': ['State'],
-                                'District': ['District']
+                                'State': ['state'],
+                                'District': ['district']
+                            }
+                        elif source == 'Steel Plants with BF':
+                            alt_columns = {
+                                'Plant': ['Plant Name', 'Name'],
+                                'Plant Status': ['Status', 'Operational Status'],
+                                'Subnational Unit': ['State', 'District'],
+                                'Main Production Equipment': ['Furnace Type', 'Equipment']
                             }
                         elif source == 'Rice Mills':
                             alt_columns = {
@@ -345,7 +348,16 @@ def render_main_dashboard(data_sources, min_capacity, show_map):
                         
                         # Display the table with available columns
                         if available_columns:
-                            display_data = paginated_data[available_columns]
+                            # For Geocoded Companies, show specific columns if available
+                            if source == "Geocoded Companies":
+                                # FIX: Check against the dataframe's columns, not the pre-filtered list
+                                preferred_cols = [col for col in ["state", "district", "Company_Name", "City"] if col in paginated_data.columns] 
+                                if preferred_cols:
+                                    display_data = paginated_data[preferred_cols]
+                                else:
+                                    display_data = paginated_data[available_columns]
+                            else:
+                                display_data = paginated_data[available_columns]
                             st.dataframe(display_data, use_container_width=True)
                         else:
                             # Fallback: show first 6 columns if no desired columns found
@@ -501,11 +513,11 @@ def render_main_layout(pdf_viewer=None):
     geojson_metadata = load_geojson_metadata()
 
     # Sidebar navigation
-    section, data_sources, plant_type, min_capacity, show_map = render_sidebar()
+    section, data_sources, show_map = render_sidebar()
 
     # Dashboard Section
     if section == "Dashboard":
-        render_main_dashboard(data_sources, min_capacity, show_map)
+        render_main_dashboard(data_sources, show_map)
 
         # Diagnostics block (memory + debug info)
         st.markdown("---")
@@ -520,41 +532,3 @@ def render_main_layout(pdf_viewer=None):
     elif section == "Crop-Specific Data":
         render_crop_specific_data(pdf_viewer)
 
-    # GeoJSON Map Section
-    elif section == "GeoJSON Map":
-        st.title("🗺️ GeoJSON Overlays + Plant Map")
-
-        # Select overlay(s)
-        selected_files = render_geojson_overlay_selector(geojson_metadata)
-
-        # Load datasets based on selected data sources
-        if not data_sources:
-            st.warning("Please select at least one data source to display on the map.")
-            return
-            
-        all_dataframes = []
-        
-        for data_source in data_sources:
-            if data_source == "Steel Plants":
-                df = load_steel_plants()
-            elif data_source == "Steel Plants with BF":
-                from assets.pdfs.steel_plant_bf_loader import load_steel_plants_bf
-                df = load_steel_plants_bf()
-            elif data_source == "Geocoded Companies":
-                df = load_geocoded_companies()
-            elif data_source == "Rice Mills":
-                df = load_ricemill_data()
-            else:
-                df = load_steel_plants()  # default fallback
-                
-            if not df.empty:
-                df = optimize_dataframe_memory(df)
-                df["source_type"] = data_source  # Add source type for map visualization
-                all_dataframes.append(df)
-        
-        # Combine all dataframes for map visualization
-        if all_dataframes:
-            combined_df = pd.concat(all_dataframes, ignore_index=True)
-            render_interactive_map(combined_df, data_sources, selected_files)
-        else:
-            st.warning("No data available for the selected data sources.")
