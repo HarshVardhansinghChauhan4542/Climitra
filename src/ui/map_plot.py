@@ -77,14 +77,24 @@ def render_interactive_map(filtered_plants, data_sources, selected_geojson_files
     # Add GeoJSON overlays
     overlay_colors = assign_overlay_colors(selected_geojson_files)
 
+    st.write(f"Selected GeoJSON files: {selected_geojson_files}")
+    import os
     for geojson_file in selected_geojson_files:
-        geojson_data, is_chunked = load_geojson_chunked(geojson_file)
+        # Prepend assets/geojson/ if not already a path
+        if not os.path.isabs(geojson_file) and not os.path.exists(geojson_file):
+            geojson_path = os.path.join("assets", "geojson", geojson_file)
+        else:
+            geojson_path = geojson_file
+        st.write(f"Attempting to load overlay: {geojson_path}")
+        geojson_data, is_chunked = load_geojson_chunked(geojson_path)
         if geojson_data is None:
+            st.warning(f"Could not load GeoJSON file: {geojson_path}")
             continue
 
         if is_chunked:
-            st.warning(f"Large GeoJSON file detected: {geojson_file}. Showing first 5000 features.")
+            st.warning(f"Large GeoJSON file detected: {geojson_path}. Showing first 5000 features.")
 
+        st.write(f"Adding overlay to map: {geojson_path}")
         add_geojson_overlays(fig, geojson_data, geojson_file, overlay_colors[geojson_file])
 
     # Enhanced layout with legend and better styling

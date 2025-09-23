@@ -122,6 +122,8 @@ def render_main_dashboard(data_sources, show_map):
             sample_df = load_ricemill_data()
         
         if not sample_df.empty:
+            rename_map = {'State': 'state', 'District': 'district', 'City': 'city'}
+            sample_df.rename(columns=rename_map, inplace=True, errors='ignore')
             break
     
     if sample_df is None or sample_df.empty:
@@ -157,6 +159,9 @@ def render_main_dashboard(data_sources, show_map):
         if df.empty:
             st.warning(f"No data available for {data_source}")
             continue
+            
+        rename_map = {'State': 'state', 'District': 'district', 'City': 'city'}
+        df.rename(columns=rename_map, inplace=True, errors='ignore')
             
         df = optimize_dataframe_memory(df)
         # Add source_type column for compatibility with map plotting
@@ -278,13 +283,13 @@ def render_main_dashboard(data_sources, show_map):
                     if not paginated_data.empty:
                         # Define columns based on data source type
                         if source == 'Steel Plants':
-                            desired_columns = ['Plant Name', 'Furnace Type', 'Status', 'State', 'District']
+                            desired_columns = ['Plant Name', 'Furnace Type', 'Status', 'state', 'district']
                         elif source == 'Steel Plants with BF':
                             desired_columns = ['Plant', 'Plant Status', 'Subnational Unit', 'Main Production Equipment']
                         elif source == 'Rice Mills':
-                            desired_columns = ['detailed_district', 'Name', 'Rice mill name', 'state', 'address']
+                            desired_columns = ['name', 'state', 'detailed_district', 'address']
                         elif source == 'Geocoded Companies':
-                            desired_columns = ['Company', 'State', 'District', 'City', 'Name']
+                            desired_columns = ['Company_Name', 'state', 'district', 'street_Address']
                         else:
                             # Default fallback
                             desired_columns = ['Name', 'State', 'District']
@@ -295,31 +300,29 @@ def render_main_dashboard(data_sources, show_map):
                                 'Plant Name': ['Plant', 'Name', 'Company'],
                                 'Furnace Type': ['Furnace Type', 'Furnace_Type', 'Furnance'],
                                 'Status': ['Operational', 'Operational Status'],
-                                'State': ['state'],
-                                'District': ['district']
+                                'state': ['State'],
+                                'district': ['District']
                             }
                         elif source == 'Steel Plants with BF':
                             alt_columns = {
-                                'Plant': ['Plant Name', 'Name'],
-                                'Plant Status': ['Status', 'Operational Status'],
-                                'Subnational Unit': ['State', 'District'],
-                                'Main Production Equipment': ['Furnace Type', 'Equipment']
+                                'Plant': ['Plant Name', 'Name', 'Company'],
+                                'Plant Status': ['Status', 'Operational', 'Operational Status'],
+                                'Subnational Unit': ['state', 'district', 'State', 'District'],
+                                'Main Production Equipment': ['Furnace Type', 'Furnace_Type', 'Furnance', 'Equipment']
                             }
                         elif source == 'Rice Mills':
                             alt_columns = {
                                 'detailed_district': ['detailed_district', 'District', 'district'],
-                                'Name': ['Name', 'Company'],
-                                'Rice mill name': ['Rice mill name', 'Rice Mill Name', 'Mill Name', 'Mill name'],
+                                'Name': ['name', 'Company'],
                                 'state': ['state', 'State'],
                                 'address': ['address', 'Address', 'Location', 'location']
                             }
                         elif source == 'Geocoded Companies':
                             alt_columns = {
-                                'Company': ['Name', 'Plant', 'Plant Name'],
-                                'State': ['State'],
-                                'District': ['District'],
-                                'City': ['City', 'Location'],
-                                'Name': ['Company', 'Plant']
+                                'Company_Name': ['Company_Name', 'Plant', 'Plant Name'],
+                                'state': ['state'],
+                                'district': ['district'],
+                                'street_Address': ['street_Address']
                             }
                         else:
                             # Default fallback
